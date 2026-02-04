@@ -103,8 +103,8 @@ button {
 
 <body>
 
-<!-- MUSIC (will start after YES click) -->
-<audio id="bgMusic" loop playsinline></audio>
+<!-- MUSIC: start after YES click -->
+<audio id="bgMusic" loop playsinline preload="auto"></audio>
 
 <div class="container" id="main">
   <h1 id="question"></h1>
@@ -121,8 +121,8 @@ button {
 
   <!-- IMAGE (slideshow) -->
   <img id="mainImage"
-       src="https://images.unsplash.com/photo-1526045478516-99145907023c"
-       alt="Our moment">
+       src="https://images.unsplash.com/photo-1506744038136-46273834b3fb"
+       alt="Romantic scene">
 
   <div class="love-letter" id="loveLetter">
     I made this just for you 💕  
@@ -143,9 +143,9 @@ button {
    ====================== */
 const name = "Ananya";
 document.getElementById("question").innerHTML =
-  `Will you be my Valentine, ${name}? 💘`;
+  `Will you be my Valentine, Dear ${name}? 💘`;
 document.getElementById("greeting").innerHTML =
-  `Hi ${name}!! 🥰🌹`;
+  `Hi Dear ${name}!! 🥰🌹`;
 
 /* ======================
    BUTTON LOGIC
@@ -178,10 +178,10 @@ noBtn.addEventListener("touchstart", moveNo);
    YES CLICK – ADD FEATURES + SLIDESHOW
    ====================== */
 const slideshowImages = [
-  "https://images.unsplash.com/photo-1526045478516-99145907023c",
   "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
-  "https://images.unsplash.com/photo-1519337265831-281ec6cc8514",
-  "https://images.unsplash.com/photo-1517841905240-472988babdf9"
+  "https://images.unsplash.com/photo-1491553895911-0055eca6402d",
+  "https://images.unsplash.com/photo-1470770841072-f978cf4d019e",
+  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
 ];
 
 yesBtn.addEventListener("click", () => {
@@ -212,7 +212,7 @@ yesBtn.addEventListener("click", () => {
   setInterval(() => {
     index = (index + 1) % slideshowImages.length;
     image.src = slideshowImages[index];
-  }, 2500);
+  }, 3000); // change every 3 sec
 });
 
 /* ======================
