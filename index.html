@@ -103,8 +103,8 @@ button {
 
 <body>
 
-<!-- MUSIC (will change after YES) -->
-<audio id="bgMusic" autoplay loop playsinline>
+<!-- MUSIC -->
+<audio id="bgMusic" loop playsinline>
   <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4c4d6b61b0.mp3" type="audio/mpeg">
 </audio>
 
@@ -121,7 +121,7 @@ button {
 <div class="container hidden result" id="result">
   <h1 id="greeting"></h1>
 
-  <!-- IMAGE (same image for now) -->
+  <!-- IMAGE -->
   <img id="mainImage"
        src="https://images.unsplash.com/photo-1526045478516-99145907023c"
        alt="Our moment">
@@ -150,7 +150,7 @@ document.getElementById("greeting").innerHTML =
   `Hi ${name}!! 🥰🌹`;
 
 /* ======================
-   BUTTON LOGIC (UNCHANGED)
+   BUTTON LOGIC
    ====================== */
 const noBtn = document.getElementById("no");
 const yesBtn = document.getElementById("yes");
@@ -183,12 +183,12 @@ yesBtn.addEventListener("click", () => {
   main.classList.add("hidden");
   result.classList.remove("hidden");
 
+  // Start music (autoplay allowed after user interaction)
+  music.src = "https://cdn.pixabay.com/download/audio/2022/10/30/audio_2a47d43a3b.mp3";
+  music.play().catch(err => console.log("Music blocked:", err));
+
   // Blur reveal
   setTimeout(() => image.classList.add("reveal"), 300);
-
-  // Change music after YES
-  music.src = "https://cdn.pixabay.com/download/audio/2022/10/30/audio_2a47d43a3b.mp3";
-  music.play();
 
   // Secret alert
   setTimeout(() => {
@@ -204,7 +204,7 @@ yesBtn.addEventListener("click", () => {
 });
 
 /* ======================
-   HEARTS (UNCHANGED)
+   HEARTS
    ====================== */
 setInterval(() => {
   const heart = document.createElement("div");
@@ -218,7 +218,7 @@ setInterval(() => {
 }, 300);
 
 /* ======================
-   COUNTDOWN (UNCHANGED)
+   COUNTDOWN
    ====================== */
 const countdownEl = document.getElementById("countdown");
 const valentine = new Date("Feb 14, 2026 00:00:00").getTime();
